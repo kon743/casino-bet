@@ -156,19 +156,67 @@ header h1 {
     flex-wrap: wrap; /* スマホなどで折り返す */
 }
 
-/* 総合計エリアのスタイル */
 #grand-total {
-    font-size: 2em; /* 文字を大きくする (32px相当) */
-    font-weight: bold;
-    color: #333;
+    display: flex; /* ★重要: これで中の要素が横並びになる */
+    align-items: baseline; /* テキストのベースラインで揃える */
+    justify-content: center; /* 中央寄せ */
+    gap: 30px; /* 各要素の間のスペース */
+
     background-color: #fff;
-    padding: 10px 20px;
+    padding: 15px 25px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     border: 1px solid #ddd;
+    flex-wrap: wrap; /* 画面が狭いときは折り返す */
 }
 
+/* 各合計アイテムの共通スタイル */
+.total-item {
+    font-weight: bold;
+    color: #555;
+    font-size: 1.4em; /* 基本の文字サイズ */
+}
+
+/* 1つ目のアイテム（総合計）だけを大きく目立たせる */
+.total-item:first-child {
+    font-size: 2em; /* 他より大きく */
+    color: #333;
+}
+
+/* 金額の数字部分のスタイル */
+.total-item span {
+    margin-left: 8px;
+}
 #grand-total-amount {
-    color: #dc3545; /* 全体クリアボタンと同じ赤色で目立たせる */
-    margin-left: 10px;
+    color: #dc3545; /* 赤色 */
+}
+#grand-total-x2, #grand-total-x3 {
+    color: #007bff; /* 青色 */
+}
+
+/* レスポンシブ対応: 画面幅が600px以下（スマホなど）の場合 */
+@media (max-width: 600px) {
+    #grand-total {
+        flex-direction: column; /* 縦並びに変更 */
+        gap: 10px; /* 隙間を狭くする */
+        align-items: center;
+    }
+}
+
+
+
+/* 2倍、3倍の配当表示エリア */
+.total-payouts {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* 「2倍」と「3倍」の間のスペース */
+    font-size: 1.2em; /* 少し小さく */
+    color: #555;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.total-payouts span span { /* 実際の数字部分 */
+    color: #007bff; /* 青色にする */
+    margin-left: 8px;
 }

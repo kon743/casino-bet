@@ -97,18 +97,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('clear-all-btn').addEventListener('click', () => {
         document.querySelectorAll('.player-area').forEach(clearPlayer);
     });
-    function updateGrandTotal() {
+function updateGrandTotal() {
     let grandTotal = 0;
-    // すべてのプレイヤーの合計金額が表示されている <span> を取得
     const allTotals = document.querySelectorAll('.total-amount span');
 
-    // それぞれの合計金額を足していく
     allTotals.forEach(totalSpan => {
         grandTotal += parseInt(totalSpan.textContent) || 0;
     });
 
-    // HTMLの総合計エリアに計算結果を表示
+    // 総合計を表示
     document.getElementById('grand-total-amount').textContent = grandTotal;
+
+    // ★★★ 追加: 2倍と3倍の値を計算して表示 ★★★
+    document.getElementById('grand-total-x2').textContent = grandTotal * 2;
+    document.getElementById('grand-total-x3').textContent = grandTotal * 3;
 }
 
     function updateTotal(playerArea) {
