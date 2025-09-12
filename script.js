@@ -36,12 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
 
-        playerArea.innerHTML = `
-            <input type="text" class="player-name" placeholder="Player ${i + 1}">
-            ${chipControlsHTML}
-            <div class="total-amount">合計: <span>0</span></div>
-            <button class="clear-btn">クリア</button>
-        `;
+playerArea.innerHTML = `
+    <input type="text" class="player-name" placeholder="Player ${i + 1}">
+    ${chipControlsHTML}
+    <div class="total-amount-container">
+        <div class="total-item-player">合計: <span class="total-1x">0</span></div>
+        <div class="total-item-player">2倍: <span class="total-2x">0</span></div>
+        <div class="total-item-player">3倍: <span class="total-3x">0</span></div>
+    </div>
+    <button class="clear-btn">クリア</button>
+`;
         playerContainer.appendChild(playerArea);
     }
 
@@ -100,31 +104,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 function updateGrandTotal() {
     let grandTotal = 0;
-    const allTotals = document.querySelectorAll('.total-amount span');
+    // 各プレイヤーの合計(1倍)が表示されているspanを取得
+    const allPlayerTotals = document.querySelectorAll('.total-1x');
 
-    allTotals.forEach(totalSpan => {
+    allPlayerTotals.forEach(totalSpan => {
         grandTotal += parseInt(totalSpan.textContent) || 0;
     });
 
-    // 総合計を表示
     document.getElementById('grand-total-amount').textContent = grandTotal;
-
-    // ★★★ 追加: 2倍と3倍の値を計算して表示 ★★★
     document.getElementById('grand-total-x2').textContent = grandTotal * 2;
     document.getElementById('grand-total-x3').textContent = grandTotal * 3;
 }
 
-    function updateTotal(playerArea) {
-        let total = 0;
-        playerArea.querySelectorAll('.chip-control').forEach(control => {
-            const value = parseInt(control.dataset.value);
-            // ★変更点3: inputのvalueから値を取得
-            const count = parseInt(control.querySelector('.chip-count').value) || 0; // 空の場合を考慮
-            total += value * count;
-        });
-        playerArea.querySelector('.total-amount span').textContent = total;
-        updateGrandTotal();
-    }
+function updateTotal(playerArea) {
+    let total = 0;
+    playerArea.querySelectorAll('.chip-control').forEach(control => {
+        const value = parseInt(control.dataset.value);
+        const count = parseInt(control.querySelector('.chip-count').value) || 0;
+        total += value * count;
+    });
+
+    // 1倍、2倍、3倍の値をそれぞれのspanに表示
+    playerArea.querySelector('.total-1x').textContent = total;
+    playerArea.querySelector('.total-2x').textContent = total * 2;
+    playerArea.querySelector('.total-3x').textContent = total * 3;
+
+    updateGrandTotal(); // 総合計も更新
+}
 
     function clearPlayer(playerArea) {
         // ★変更点4: inputのvalueをリセット
