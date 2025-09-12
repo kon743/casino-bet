@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: '10', value: 10 },
         { name: '25', value: 25 },
         { name: '100', value: 100 },
+        { name: '500', value: 500 },
     ];
     // --- 設定ここまで ---
 
