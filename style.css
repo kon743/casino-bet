@@ -146,3 +146,29 @@ header h1 {
     -moz-appearance: textfield;
     appearance: none;
 }
+/* 全体コントロールエリアのスタイル */
+.global-controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* ボタンと合計の間のスペース */
+    flex-wrap: wrap; /* スマホなどで折り返す */
+}
+
+/* 総合計エリアのスタイル */
+#grand-total {
+    font-size: 2em; /* 文字を大きくする (32px相当) */
+    font-weight: bold;
+    color: #333;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}
+
+#grand-total-amount {
+    color: #dc3545; /* 全体クリアボタンと同じ赤色で目立たせる */
+    margin-left: 10px;
+}
