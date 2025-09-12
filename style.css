@@ -4,7 +4,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -17,7 +17,7 @@ header h1 {
     display: flex;
     flex-wrap: wrap; /* スマホなどで折り返すようにする */
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 30px;
 }
 
@@ -26,10 +26,10 @@ header h1 {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    min-width: 280px;
-    flex: 1; /* 横並びのスペースを均等に使う */
+    min-width: 240px;
+     flex: 1 1 0; /* flex-grow, flex-shrink, flex-basis を設定 */
 }
 
 .player-name {
