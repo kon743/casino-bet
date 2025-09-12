@@ -55,6 +55,11 @@ header h1 {
     text-align: left;
 }
 
+.chip-buttons {
+    display: flex; /* これで中の要素が横並びになる */
+    align-items: center; /* 上下中央揃えにする */
+}
+
 .chip-buttons button {
     width: 35px;
     height: 35px;
