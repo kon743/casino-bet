@@ -183,6 +183,11 @@ header h1 {
     color: #007bff; /* 青色 */
 }
 
+.total-36x {
+    color: #e0a800; /* 目立つ金色系の色 */
+    font-weight: bold; /* 数字を太字にして強調 */
+}
+
 /* レスポンシブ対応: 画面幅が600px以下（スマホなど）の場合 */
 @media (max-width: 600px) {
     #grand-total {

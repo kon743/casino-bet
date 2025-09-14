@@ -43,6 +43,7 @@ playerArea.innerHTML = `
         <div class="total-item-player">合計: <span class="total-1x">0</span></div>
         <div class="total-item-player">2倍: <span class="total-2x">0</span></div>
         <div class="total-item-player">3倍: <span class="total-3x">0</span></div>
+        <div class="total-item-player">36倍: <span class="total-36x">0</span></div>
     </div>
     <button class="clear-btn">クリア</button>
 `;
@@ -124,12 +125,13 @@ function updateTotal(playerArea) {
         total += value * count;
     });
 
-    // 1倍、2倍、3倍の値をそれぞれのspanに表示
+    // 1倍、2倍、3倍、36倍の値をそれぞれのspanに表示
     playerArea.querySelector('.total-1x').textContent = total;
     playerArea.querySelector('.total-2x').textContent = total * 2;
     playerArea.querySelector('.total-3x').textContent = total * 3;
+    playerArea.querySelector('.total-36x').textContent = total * 36; // この行を追加
 
-    updateGrandTotal(); // 総合計も更新
+    updateGrandTotal();
 }
 
     function clearPlayer(playerArea) {
